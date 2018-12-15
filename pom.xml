@@ -28,13 +28,13 @@
     
     <modules>
         <module>bdnav-common</module>
-        <module>bdnav-gateway</module>
         <module>bdnav-monitor</module>
         <module>bdnav-generator</module>
         <module>bdnav-provider-api</module>
         <module>bdnav-provider</module>
         <module>bdnav-config-server</module>
         <module>bdnav-eureka-server</module>
+        <module>bdnav-gateway</module>
     </modules>
 
     <dependencyManagement>
