@@ -1,20 +1,20 @@
-package com.bdxh.gateway;
+package com.bdxh.monitor;
 
+import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 /**
  * @description:
  * @author: xuyuan
- * @create: 2018-12-14 22:36
+ * @create: 2018-12-15 22:04
  **/
-@EnableZuulProxy
-@EnableEurekaClient
 @SpringBootApplication
-public class GatewayZuulServer {
+@EnableAdminServer
+@EnableEurekaClient
+public class AdminServer {
     public static void main(String[] args) {
-        SpringApplication.run(GatewayZuulServer.class,args);
+        SpringApplication.run(AdminServer.class,args);
     }
 }

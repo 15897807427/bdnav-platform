@@ -35,6 +35,7 @@
         <module>bdnav-config-server</module>
         <module>bdnav-eureka-server</module>
         <module>bdnav-gateway</module>
+        <module>bdnav-web</module>
     </modules>
 
     <dependencyManagement>

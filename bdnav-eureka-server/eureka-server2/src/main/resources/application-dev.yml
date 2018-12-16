@@ -1,3 +1,7 @@
+info:
+  groupId: @project.groupId@
+  artifactId: @project.artifactId@
+  version: @project.version@
 eureka:
   instance:
     hostname: eureka-server2
@@ -8,3 +12,11 @@ eureka:
     fetch-registry: false #表明自己是注册中心，不需要检索服务
     serviceUrl:
      defaultZone: http://eureka-server1:9001/eureka/,http://eureka-server3:9003/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+      health:
+        show-details: ALWAYS

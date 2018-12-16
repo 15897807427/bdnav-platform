@@ -1,20 +1,20 @@
-package com.bdxh.gateway;
+package com.bdxh.monitor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.cloud.netflix.turbine.stream.EnableTurbineStream;
 
 /**
  * @description:
  * @author: xuyuan
- * @create: 2018-12-14 22:36
+ * @create: 2018-12-16 13:21
  **/
-@EnableZuulProxy
-@EnableEurekaClient
 @SpringBootApplication
-public class GatewayZuulServer {
+@EnableEurekaClient
+@EnableTurbineStream
+public class TurbineServer {
     public static void main(String[] args) {
-        SpringApplication.run(GatewayZuulServer.class,args);
+        SpringApplication.run(TurbineServer.class,args);
     }
 }
