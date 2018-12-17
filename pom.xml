@@ -34,6 +34,9 @@
         <hutool-all.version>3.3.2</hutool-all.version>
         <aliyun-sms.version>1.0.0</aliyun-sms.version>
         <fastson.version>1.2.54</fastson.version>
+        <dozer.version>5.5.1</dozer.version>
+        <modemapper.version>2.3.2</modemapper.version>
+        <swagger2.version>2.9.2</swagger2.version>
     </properties>
     
     <modules>
@@ -52,6 +55,10 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 
@@ -150,11 +157,23 @@
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool-all.version}</version>
             </dependency>
-            <!-- 阿里短信依赖 -->
+            <!-- dozer依赖 -->
             <dependency>
-                <groupId>com.aliyun</groupId>
-                <artifactId>sms</artifactId>
-                <version>${aliyun-sms.version}</version>
+                <groupId>net.sf.dozer</groupId>
+                <artifactId>dozer</artifactId>
+                <version>${dozer.version}</version>
+            </dependency>
+            <!-- modelmapper依赖 -->
+            <dependency>
+                <groupId>org.modelmapper</groupId>
+                <artifactId>modelmapper</artifactId>
+                <version>${modemapper.version}</version>
+            </dependency>
+            <!-- swagger2依赖 -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger2.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
