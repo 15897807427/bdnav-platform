@@ -24,6 +24,16 @@
         <durid.version>1.1.10</durid.version>
         <pagehelper.version>5.1.4</pagehelper.version>
         <mapper.version>3.5.2</mapper.version>
+        <lombok.version>1.18.4</lombok.version>
+        <guava.version>23.0</guava.version>
+        <rocketmq.version>4.3.2</rocketmq.version>
+        <httpclientutil.version>1.0</httpclientutil.version>
+        <jjwt.version>0.9.0</jjwt.version>
+        <jackson-databind.version>2.9.7</jackson-databind.version>
+        <jackson-smile.version>1.9.13</jackson-smile.version>
+        <hutool-all.version>3.3.2</hutool-all.version>
+        <aliyun-sms.version>1.0.0</aliyun-sms.version>
+        <fastson.version>1.2.54</fastson.version>
     </properties>
     
     <modules>
@@ -36,6 +46,13 @@
         <module>bdnav-eureka-server</module>
         <module>bdnav-gateway</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+    </dependencies>
 
     <dependencyManagement>
         <dependencies>
@@ -77,6 +94,66 @@
                 <groupId>tk.mybatis</groupId>
                 <artifactId>mapper</artifactId>
                 <version>${mapper.version}</version>
+            </dependency>
+            <!-- lombok依赖 -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <!-- guava依赖 -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <!-- rocketmq依赖 -->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>${rocketmq.version}</version>
+            </dependency>
+            <!-- httpclient依赖 -->
+            <dependency>
+                <groupId>com.arronlong.httpclientutil</groupId>
+                <artifactId>httpclientutil</artifactId>
+                <version>${httpclientutil.version}</version>
+            </dependency>
+            <!-- jwt依赖 -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <!-- jackson依赖 -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson-databind.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-smile</artifactId>
+                <version>${jackson-smile.version}</version>
+            </dependency>
+            <!-- fastjson依赖 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastson.version}</version>
+            </dependency>
+            <!-- hutool工具包依赖 -->
+            <dependency>
+                <groupId>com.xiaoleilu</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-all.version}</version>
+            </dependency>
+            <!-- 阿里短信依赖 -->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>sms</artifactId>
+                <version>${aliyun-sms.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
