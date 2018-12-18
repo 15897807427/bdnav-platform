@@ -12,8 +12,11 @@
 package com.bdxh.common.core.utils;
 
 import com.bdxh.common.base.constant.GlobalConstant;
+import com.bdxh.common.base.dto.LoginAuthDto;
 import com.bdxh.common.base.enums.ErrorCodeEnum;
 import com.bdxh.common.base.exception.BusinessException;
+import com.bdxh.common.utils.PublicUtil;
+import com.bdxh.common.utils.ThreadLocalMap;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -96,6 +99,20 @@ public class RequestUtil {
 			}
 		}
 		return ipAddress;
+	}
+
+	/**
+	 * Gets login user.
+	 *
+	 * @return the login user
+	 */
+	public static LoginAuthDto getLoginUser() {
+		LoginAuthDto loginAuthDto = (LoginAuthDto) ThreadLocalMap.get(GlobalConstant.Sys.TOKEN_AUTH_DTO);
+		if (PublicUtil.isEmpty(loginAuthDto)) {
+			throw new BusinessException(ErrorCodeEnum.UAC10011039);
+		}
+		return loginAuthDto;
+
 	}
 
 	/**

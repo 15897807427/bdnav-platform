@@ -14,6 +14,8 @@ package com.bdxh.common.core.mq;
 import com.bdxh.common.base.enums.ErrorCodeEnum;
 import com.bdxh.common.base.exception.BusinessException;
 import com.google.common.base.Preconditions;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.producer.SendResult;
@@ -32,11 +34,16 @@ import java.io.UnsupportedEncodingException;
  */
 @Slf4j
 @Data
+@ApiModel("消息队列")
 public class MqMessage implements Serializable {
 	private static final long serialVersionUID = 9215900048842983997L;
+	@ApiModelProperty("主题")
 	private String topic;
+	@ApiModelProperty("标签")
 	private String tag;
+	@ApiModelProperty("唯一键")
 	private String key;
+	@ApiModelProperty("消息体")
 	private String body;
 
 	/**

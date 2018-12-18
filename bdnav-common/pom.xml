@@ -16,6 +16,7 @@
         <module>common-core</module>
         <module>common-utils</module>
         <module>common-feigin</module>
+        <module>common-zk</module>
     </modules>
 
     <dependencies>

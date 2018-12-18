@@ -12,6 +12,8 @@
 package com.bdxh.common.core.support;
 
 import com.bdxh.common.base.exception.BusinessException;
+import com.bdxh.common.zk.generator.IncrementIdGenerator;
+import com.bdxh.common.zk.generator.UniqueIdGenerator;
 import org.apache.ibatis.session.RowBounds;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -268,4 +270,7 @@ public abstract class BaseService<T> implements IService<T> {
 		return mapper.selectByExampleAndRowBounds(example, rowBounds);
 	}
 
+	protected long generateId() {
+		return UniqueIdGenerator.getInstance(IncrementIdGenerator.getServiceId()).nextId();
+	}
 }

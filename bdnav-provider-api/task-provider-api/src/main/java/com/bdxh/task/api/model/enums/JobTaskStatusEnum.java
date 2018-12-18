@@ -5,10 +5,10 @@ import com.google.common.collect.Lists;
 import java.util.List;
 
 /**
- * The enum Job task status enum.
- *
- * @author paascloud.net @gmail.com
- */
+ * @description: 任务状态
+ * @author: xuyuan
+ * @create: 2018-12-17 14:57
+ **/
 public enum JobTaskStatusEnum {
 
 	/**
@@ -36,13 +36,8 @@ public enum JobTaskStatusEnum {
 	 */
 	TASK_FAIL(4, "处理失败"),;
 
-	/**
-	 * The Status.
-	 */
 	int status;
-	/**
-	 * The Value.
-	 */
+
 	String value;
 
 	JobTaskStatusEnum(int status, String value) {
@@ -50,39 +45,30 @@ public enum JobTaskStatusEnum {
 		this.value = value;
 	}
 
-	/**
-	 * Gets status.
-	 *
-	 * @return the status
-	 */
-	public int status() {
+	public int getStatus() {
 		return status;
 	}
 
-	/**
-	 * Gets value.
-	 *
-	 * @return the value
-	 */
-	public String value() {
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public String getValue() {
 		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
 	}
 
 	private static List<Integer> getStatusList() {
 		List<Integer> list = Lists.newArrayList();
 		for (JobTaskStatusEnum ele : JobTaskStatusEnum.values()) {
-			list.add(ele.status());
+			list.add(ele.getStatus());
 		}
 		return list;
 	}
 
-	/**
-	 * Contains boolean.
-	 *
-	 * @param status the status
-	 *
-	 * @return the boolean
-	 */
 	public static boolean contains(Integer status) {
 		List<Integer> statusList = getStatusList();
 		return statusList.contains(status);

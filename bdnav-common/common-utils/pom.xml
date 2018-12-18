@@ -49,13 +49,13 @@
             <groupId>net.sf.dozer</groupId>
             <artifactId>dozer</artifactId>
         </dependency>
-<!--        <dependency>
+       <dependency>
             <groupId>com.aliyun</groupId>
             <artifactId>systemsms</artifactId>
             <version>1.0.0</version>
             <scope>system</scope>
             <systemPath>${basedir}/lib/sms-1.0.0.jar</systemPath>
-        </dependency>-->
+        </dependency>
         <dependency>
             <groupId>com.aliyun</groupId>
             <artifactId>aliyun-java-sdk-core</artifactId>

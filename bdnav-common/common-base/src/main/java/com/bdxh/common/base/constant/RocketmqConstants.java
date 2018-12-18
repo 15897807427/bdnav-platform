@@ -26,7 +26,12 @@ public class RocketmqConstants {
 		/**
 		 * 消息推送
 		 */
-		CONTROL_PUSH_TOPIC("CONTROL_PUSH_TOPIC", "管控推送");
+		CONTROL_PUSH_TOPIC("CONTROL_PUSH_TOPIC", "管控推送"),
+
+		/**
+		 * 删除消息
+		 */
+		DELETE_MESSAGE_TOPIC("DELETE_MESSAGE_TOPIC","删除消息");
 
 		RocketmqTopicEnum(String topic, String topicName) {
 			this.topic = topic;
@@ -63,7 +68,17 @@ public class RocketmqConstants {
 		/**
 		 * 获取博学派验证码
 		 */
-		LIBERAL_SCHOOL_CODE_TAG("LIBERAL_SCHOOL_CODE_TAG", RocketmqTopicEnum.SEND_SMS_TOPIC.getTopic(), "博学派验证码短信发送");
+		LIBERAL_SCHOOL_CODE_TAG("LIBERAL_SCHOOL_CODE_TAG", RocketmqTopicEnum.SEND_SMS_TOPIC.getTopic(), "博学派验证码短信发送"),
+
+		/**
+		 * 删除生产者历史消息
+		 */
+		DELETE_PRODUCER_MESSAGE("DELETE_PRODUCER_MESSAGE", RocketmqTopicEnum.DELETE_MESSAGE_TOPIC.getTopic(), "删除生产者历史消息"),
+
+		/**
+		 * 删除消费者历史消息
+		 */
+		DELETE_CONSUMER_MESSAGE("DELETE_CONSUMER_MESSAGE", RocketmqTopicEnum.DELETE_MESSAGE_TOPIC.getTopic(), "删除消费者历史消息");
 
 		String tag;
 

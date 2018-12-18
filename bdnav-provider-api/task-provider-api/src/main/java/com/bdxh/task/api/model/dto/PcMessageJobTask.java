@@ -4,12 +4,11 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-
 /**
- * The class Pc message job task.
- *
- * @author paascloud.net @gmail.com
- */
+ * @description: 任务实体
+ * @author: xuyuan
+ * @create: 2018-12-17 14:57
+ **/
 @Data
 public class PcMessageJobTask implements Serializable {
 

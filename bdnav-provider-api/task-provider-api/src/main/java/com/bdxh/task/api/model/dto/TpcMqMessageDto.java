@@ -5,10 +5,10 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * The class Tpc mq message dto.
- *
- * @author paascloud.net @gmail.com
- */
+ * @description: 消息转换类
+ * @author: xuyuan
+ * @create: 2018-12-17 14:57
+ **/
 @Data
 public class TpcMqMessageDto implements Serializable {
 

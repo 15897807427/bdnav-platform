@@ -9,8 +9,14 @@ import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 import com.bdxh.common.base.constant.AliyunSmsConstants;
 import com.google.common.base.Preconditions;
+import com.taobao.api.ApiException;
+import com.taobao.api.DefaultTaobaoClient;
+import com.taobao.api.TaobaoClient;
+import com.taobao.api.request.AlibabaAliqinFcSmsNumSendRequest;
 import com.xiaoleilu.hutool.json.JSONObject;
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -62,7 +68,7 @@ public class AliyunSmsUtil {
         Preconditions.checkArgument(sendSmsResponse.getCode() != null && sendSmsResponse.getCode().equals("OK"));
     }
 
-/*    public static void sendTaobao(String busType, Map<String, String> param) throws ApiException {
+    public static void sendTaobao(String busType, Map<String, String> param) throws ApiException {
         Preconditions.checkArgument(StringUtils.isNotEmpty(busType), "短信类型不能为空");
         AliyunSmsConstants.SmsTempletEnum smsTempletEnum = AliyunSmsConstants.SmsTempletEnum.getEnumByBusType(busType);
         Preconditions.checkNotNull(smsTempletEnum,"短信类型未配置");
@@ -115,6 +121,6 @@ public class AliyunSmsUtil {
         param.put("code","123456");
         param.put("product","微校钱包");
         AliyunSmsUtil.sendTaobao(AliyunSmsConstants.SmsTempletEnum.TEMPLATE_身份验证.getBusType(),param);
-    }*/
+    }
 
 }

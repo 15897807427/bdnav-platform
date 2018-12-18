@@ -11,6 +11,7 @@
 
 package com.bdxh.common.core.mybatis;
 
+import com.bdxh.common.base.dto.LoginAuthDto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
@@ -94,5 +95,23 @@ public class BaseEntity implements Serializable {
 	public boolean isNew() {
 		return this.id == null;
 	}
-	
+
+	/**
+	 * Sets update info.
+	 *
+	 * @param user the user
+	 */
+	@Transient
+	@JsonIgnore
+	public void setUpdateInfo(LoginAuthDto user) {
+
+		if (isNew()) {
+			this.creatorId = (this.lastOperatorId = user.getUserId());
+			this.creator = user.getUserName();
+			this.createdTime = (this.updateTime = new Date());
+		}
+		this.lastOperatorId = user.getUserId();
+		this.lastOperator = user.getUserName() == null ? user.getLoginName() : user.getUserName();
+		this.updateTime = new Date();
+	}
 }
