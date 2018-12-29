@@ -15,19 +15,8 @@ import java.util.List;
  **/
 public class AliyunSmsConstants {
 
-	public interface aliyunSms {
-		String connectTimeout="5000";
-		String readTimeout="5000";
-		String region = "cn-shenzhen";
-		String domain = "dysmsapi.aliyuncs.com";
-		String product = "Dysmsapi";
-		String accessKeyId = "23331537";
-		String accessKeySecret = "2108f6f83545d7ed15e3aabf4f04484a";
-	}
-
-
 	public interface taobaoSms {
-		String domain = "http://gw.api.taobao.com/router/rest";
+		String domain = "http://gw.entity.taobao.com/router/rest";
 		String accessKeyId = "23331537";
 		String accessKeySecret = "2108f6f83545d7ed15e3aabf4f04484a";
 	}

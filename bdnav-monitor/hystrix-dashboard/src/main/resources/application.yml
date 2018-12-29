@@ -1,7 +1,0 @@
-server:
-  port: 9008
-spring:
-  application:
-    name: hystrix-dashboard-server
-  profiles:
-    active: dev

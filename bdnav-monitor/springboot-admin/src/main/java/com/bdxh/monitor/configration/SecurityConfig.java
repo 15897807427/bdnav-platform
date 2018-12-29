@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         //忽略静态文件
-        web.ignoring().antMatchers("/**.html", "/**.css", "/**.js", "/img/**", "/third-party/**","/api/**");
+        web.ignoring().antMatchers("/**.html", "/**.css", "/**.js", "/img/**", "/third-party/**","/entity/**");
     }
 
     @Override
@@ -44,6 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         SavedRequestAwareAuthenticationSuccessHandler successHandler = new SavedRequestAwareAuthenticationSuccessHandler();
         successHandler.setTargetUrlParameter("redirectTo");
         http.authorizeRequests()
+                .antMatchers(adminContextPath+"/actuator/**").permitAll()
                 .antMatchers(adminContextPath + "/assets/**").permitAll()
                 .antMatchers(adminContextPath + "/login").permitAll()
                 .anyRequest().authenticated()

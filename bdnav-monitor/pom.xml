@@ -12,14 +12,12 @@
     <packaging>pom</packaging>
 
     <properties>
-        <springboot-admin.version>2.1.1</springboot-admin.version>
+        <springboot-admin.version>2.0.4</springboot-admin.version>
         <springboot-admin-login.version>1.5.7</springboot-admin-login.version>
     </properties>
 
     <modules>
         <module>springboot-admin</module>
-        <module>hystrix-dashboard</module>
-        <module>springboot-turbine</module>
     </modules>
 
 </project>

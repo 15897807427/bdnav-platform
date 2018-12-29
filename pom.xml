@@ -36,21 +36,20 @@
         <fastson.version>1.2.54</fastson.version>
         <dozer.version>5.5.1</dozer.version>
         <zk.version>4.0.0</zk.version>
-        <modemapper.version>2.3.2</modemapper.version>
         <swagger2.version>2.9.2</swagger2.version>
         <aspectjweaver.version>1.9.2</aspectjweaver.version>
-        <logback-encoder.version>4.11</logback-encoder.version>
     </properties>
     
     <modules>
         <module>bdnav-common</module>
         <module>bdnav-monitor</module>
         <module>bdnav-generator</module>
-        <module>bdnav-provider-api</module>
+        <module>bdnav-provider-entity</module>
         <module>bdnav-provider</module>
         <module>bdnav-config-server</module>
         <module>bdnav-eureka-server</module>
         <module>bdnav-gateway</module>
+        <module>bdnav-provider-api</module>
         <module>bdnav-web</module>
     </modules>
 
@@ -62,6 +61,10 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
     </dependencies>
 
@@ -166,12 +169,6 @@
                 <artifactId>dozer</artifactId>
                 <version>${dozer.version}</version>
             </dependency>
-            <!-- modelmapper依赖 -->
-            <dependency>
-                <groupId>org.modelmapper</groupId>
-                <artifactId>modelmapper</artifactId>
-                <version>${modemapper.version}</version>
-            </dependency>
             <!-- swagger2依赖 -->
             <dependency>
                 <groupId>io.springfox</groupId>
@@ -206,14 +203,6 @@
                 <artifactId>aspectjweaver</artifactId>
                 <version>${aspectjweaver.version}</version>
             </dependency>
-            <!-- logstash-logback-encoder依赖 -->
-            <dependency>
-                <groupId>net.logstash.logback</groupId>
-                <artifactId>logstash-logback-encoder</artifactId>
-                <version>${logback-encoder.version}</version>
-            </dependency>
-
-
         </dependencies>
     </dependencyManagement>
 

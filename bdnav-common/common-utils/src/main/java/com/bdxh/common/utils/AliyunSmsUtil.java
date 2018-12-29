@@ -1,21 +1,13 @@
 package com.bdxh.common.utils;
 
-import com.aliyuncs.DefaultAcsClient;
-import com.aliyuncs.IAcsClient;
-import com.aliyuncs.dysmsapi.model.v20170525.SendSmsRequest;
-import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
-import com.aliyuncs.exceptions.ClientException;
-import com.aliyuncs.profile.DefaultProfile;
-import com.aliyuncs.profile.IClientProfile;
+import com.alibaba.fastjson.JSONObject;
 import com.bdxh.common.base.constant.AliyunSmsConstants;
 import com.google.common.base.Preconditions;
 import com.taobao.api.ApiException;
 import com.taobao.api.DefaultTaobaoClient;
 import com.taobao.api.TaobaoClient;
 import com.taobao.api.request.AlibabaAliqinFcSmsNumSendRequest;
-import com.xiaoleilu.hutool.json.JSONObject;
 import org.apache.commons.lang3.StringUtils;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,48 +17,6 @@ import java.util.Map;
  * @create: 2018-12-17 14:57
  **/
 public class AliyunSmsUtil {
-
-    public static void sendAliyun(String busType, Map<String, String> param) throws ClientException {
-        Preconditions.checkArgument(StringUtils.isNotEmpty(busType), "短信类型不能为空");
-        AliyunSmsConstants.SmsTempletEnum smsTempletEnum = AliyunSmsConstants.SmsTempletEnum.getEnumByBusType(busType);
-        Preconditions.checkNotNull(smsTempletEnum,"短信类型未配置");
-        System.setProperty("sun.net.client.defaultConnectTimeout", AliyunSmsConstants.aliyunSms.connectTimeout);
-        System.setProperty("sun.net.client.defaultReadTimeout", AliyunSmsConstants.aliyunSms.readTimeout);
-        IClientProfile profile = DefaultProfile.getProfile(AliyunSmsConstants.aliyunSms.region, AliyunSmsConstants.aliyunSms.accessKeyId, AliyunSmsConstants.aliyunSms.accessKeySecret);
-        DefaultProfile.addEndpoint("cn-hangzhou", AliyunSmsConstants.aliyunSms.region, AliyunSmsConstants.aliyunSms.product, AliyunSmsConstants.aliyunSms.domain);
-        IAcsClient acsClient = new DefaultAcsClient(profile);
-        SendSmsRequest request = new SendSmsRequest();
-        String outId = param.get("outId");
-        if (StringUtils.isNotEmpty(outId)) {
-            request.setOutId(outId);
-        }
-        String smsUpExtendCode	 = param.get("smsUpExtendCode");
-        if (StringUtils.isNotEmpty(smsUpExtendCode)) {
-            request.setSmsUpExtendCode(smsUpExtendCode);
-        }
-        //组装参数
-        JSONObject jsonObject=new JSONObject();
-        String smsParamName = smsTempletEnum.getSmsParamName();
-        if (StringUtils.isNotEmpty(smsParamName)){
-            String[] smsParamNameArray = smsParamName.split(",");
-            for(int i=0;i<smsParamNameArray.length;i++){
-                jsonObject.put(smsParamNameArray[i],param.get(smsParamNameArray[i]));
-            }
-        }
-        String smsParamString=jsonObject.toString();
-        //设置短信内容
-        request.setTemplateParam(smsParamString);
-        //设置模板code
-        request.setTemplateCode(smsTempletEnum.getTempletCode());
-        //设置签名
-        request.setSignName(smsTempletEnum.getSignName());
-        //设置手机号
-        request.setPhoneNumbers(param.get("phone"));
-        //发送短信
-        SendSmsResponse sendSmsResponse = acsClient.getAcsResponse(request);
-        //获取返回结果
-        Preconditions.checkArgument(sendSmsResponse.getCode() != null && sendSmsResponse.getCode().equals("OK"));
-    }
 
     public static void sendTaobao(String busType, Map<String, String> param) throws ApiException {
         Preconditions.checkArgument(StringUtils.isNotEmpty(busType), "短信类型不能为空");

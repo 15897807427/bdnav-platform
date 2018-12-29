@@ -1,6 +1,5 @@
 package com.bdxh.common.utils;
 
-import com.bdxh.common.utils.exception.HttpAesException;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +27,7 @@ public class HttpAesUtil {
      * @param contentParam 需要加密的内容
      * @param keyParam     加密密码
      * @param md5Key       是否对key进行md5加密
-     * @param ivParam      加密向量
+     * @param ivParam      加密向量16字节
      * @return 加密后的字节数据 string
      */
     public static String encrypt(String contentParam, String keyParam, boolean md5Key, String ivParam) {
@@ -50,7 +49,7 @@ public class HttpAesUtil {
             return new BASE64Encoder().encode(bytes);
         } catch (Exception ex) {
             log.error("加密密码失败", ex);
-            throw new HttpAesException("加密失败");
+            throw new RuntimeException("加密失败");
         }
     }
 
@@ -59,7 +58,7 @@ public class HttpAesUtil {
      * @param contentParam 需要解密的内容
      * @param keyParam     加密密码
      * @param md5Key       是否对key进行md5加密
-     * @param ivParam      加密向量
+     * @param ivParam      加密向量16字节
      * @return string
      */
     public static String decrypt(String contentParam, String keyParam, boolean md5Key, String ivParam) {
@@ -84,12 +83,12 @@ public class HttpAesUtil {
             return new String(bytes, CHAR_SET);
         } catch (Exception ex) {
             log.error("解密密码失败", ex);
-            throw new HttpAesException("解密失败");
+            throw new RuntimeException("解密失败");
         }
     }
 
     public static void main(String[] args) {
-        String xuyuan = HttpAesUtil.encrypt("xuyuan", "123456", true, "123");
+        String xuyuan = HttpAesUtil.encrypt("xuyuan", "123456", true, "1231231231233215");
         System.out.println(xuyuan);
     }
 }

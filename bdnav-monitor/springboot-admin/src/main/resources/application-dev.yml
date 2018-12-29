@@ -6,6 +6,7 @@ eureka:
   instance:
     hostname: admin-server
     instance-id: admin-instance:${server.port}
+    prefer-ip-address: false
     metadata-map:
       user:
         name: admin

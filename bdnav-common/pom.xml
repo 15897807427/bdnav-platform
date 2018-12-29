@@ -10,24 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>bdnav-common</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <module>common-base</module>
-        <module>common-config</module>
-        <module>common-core</module>
         <module>common-utils</module>
-        <module>common-feigin</module>
-        <module>common-zk</module>
+        <module>common-web</module>
     </modules>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-        </dependency>
-    </dependencies>
 
 </project>

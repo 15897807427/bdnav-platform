@@ -13,7 +13,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ObjectUtil {
 
 	//根据时间毫秒值生成id
-	public static String getId() {
+	public static synchronized String getId() {
 		StringBuffer buf=new StringBuffer();
 		SimpleDateFormat dateformat=new SimpleDateFormat("yyyyMMddHHmmsss");
 		Lock lock=new ReentrantLock();
