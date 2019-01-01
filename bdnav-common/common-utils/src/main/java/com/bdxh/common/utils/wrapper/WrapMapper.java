@@ -14,14 +14,14 @@ package com.bdxh.common.utils.wrapper;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * The class Wrap mapper.
+ * The class Wrap persistence.
  *
  * @author paascloud.net@gmail.com
  */
 public class WrapMapper {
 
 	/**
-	 * Instantiates a new wrap mapper.
+	 * Instantiates a new wrap persistence.
 	 */
 	private WrapMapper() {
 	}

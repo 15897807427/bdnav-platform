@@ -13,6 +13,8 @@
 
     <modules>
         <module>demo-provider-entity</module>
+        <module>wallet-provider-entity</module>
+        <module>backend-provider-entity</module>
     </modules>
 
     <dependencies>
@@ -20,6 +22,20 @@
             <groupId>com.bdxh</groupId>
             <artifactId>common-base</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${durid.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>${pagehelper.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper</artifactId>
         </dependency>
     </dependencies>
 

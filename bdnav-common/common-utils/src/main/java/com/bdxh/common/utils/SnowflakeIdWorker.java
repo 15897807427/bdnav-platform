@@ -130,30 +130,4 @@ public class SnowflakeIdWorker {
         return System.currentTimeMillis();
     }
 
-
-    /**
-     * 单例
-     */
-    private static volatile SnowflakeIdWorker idGen = null;
-
-    /**
-     * 实例化
-     */
-    public static SnowflakeIdWorker getInstance() {
-        if (idGen == null) {
-            synchronized (SnowflakeIdWorker.class) {
-                if (idGen == null) {
-                    idGen = new SnowflakeIdWorker(0,0);
-                }
-            }
-        }
-        return idGen;
-    }
-
-    /**
-     * 生成id
-     */
-    public static long generateId() {
-        return SnowflakeIdWorker.getInstance().nextId();
-    }
 }
