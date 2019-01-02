@@ -1,7 +1,0 @@
-server:
-  port: 9009
-spring:
-  application:
-    name: demo-web-cluster
-  profiles:
-    active: dev

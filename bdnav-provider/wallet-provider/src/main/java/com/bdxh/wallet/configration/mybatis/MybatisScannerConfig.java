@@ -15,7 +15,7 @@ public class MybatisScannerConfig {
 	public MapperScannerConfigurer getMapperScannerConfigurer() {
 		MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
 		mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
-		mapperScannerConfigurer.setBasePackage("com.xy.persistence");
+		mapperScannerConfigurer.setBasePackage("com.bdxh.wallet.persistence");
 		//配置通用mapper
 		Properties properties = new Properties();
 		properties.setProperty("notEmpty", "false");

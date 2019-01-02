@@ -24,7 +24,7 @@ import java.util.Properties;
 @Slf4j
 public class MybatisConfig {
 
-	@Bean(name = "dataSource",initMethod = "init", destroyMethod = "close")
+	@Bean(name = "dataSource")
 	@ConfigurationProperties(prefix = "spring.datasource.ds0")
 	public DataSource dataSource(){
 		return DruidDataSourceBuilder.create().build();
@@ -46,7 +46,7 @@ public class MybatisConfig {
 	public SqlSessionFactory getSqlSessionFactory(@Qualifier("dataSource") DataSource dataSource) {
 		SqlSessionFactoryBean sqlSessionFactoryBean=new SqlSessionFactoryBean();
 		//指定别名包
-		sqlSessionFactoryBean.setTypeAliasesPackage("com.xy.entity");
+		sqlSessionFactoryBean.setTypeAliasesPackage("com.bdxh.wallet.entity");
 		sqlSessionFactoryBean.setDataSource(dataSource);
 		try {
 			ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
