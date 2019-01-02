@@ -1,8 +1,8 @@
-package com.bdxh.provider.api.demo.fallback;
+package com.bdxh.wallet.fallback;
 
 import com.bdxh.common.utils.wrapper.Wrapper;
-import com.bdxh.provider.api.demo.feign.SysUserControllerApi;
-import com.bdxh.provider.entity.demo.SysUser;
+import com.bdxh.demo.entity.SysUser;
+import com.bdxh.wallet.feign.SysUserControllerApi;
 
 /**
  * @description: hystrix降级服务

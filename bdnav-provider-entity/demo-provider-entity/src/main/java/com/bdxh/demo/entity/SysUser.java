@@ -1,4 +1,4 @@
-package com.bdxh.provider.entity.demo;
+package com.bdxh.demo.entity;
 
 import lombok.Data;
 

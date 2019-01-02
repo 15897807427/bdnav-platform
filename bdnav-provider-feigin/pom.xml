@@ -8,13 +8,14 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>bdnav-provider-api</artifactId>
+
+    <artifactId>bdnav-provider-feigin</artifactId>
     <packaging>pom</packaging>
 
     <modules>
-        <module>demo-provider-feigin</module>
         <module>wallet-provider-feigin</module>
         <module>backend-provider-feigin</module>
+        <module>demo-provider-feigin</module>
     </modules>
 
     <dependencies>

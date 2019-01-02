@@ -1,27 +1,24 @@
-package com.bdxh.provider.demo.controller;
+package com.bdxh.web.demo.controller;
 
 import com.bdxh.common.utils.wrapper.WrapMapper;
 import com.bdxh.common.utils.wrapper.Wrapper;
-import com.bdxh.provider.entity.demo.SysUser;
+import com.bdxh.demo.entity.SysUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * @description: 用户控制器
+ * @description: web服务
  * @author: xuyuan
- * @create: 2018-12-27 14:48
+ * @create: 2018-12-27 17:58
  **/
-@Controller
 @RequestMapping("/sysUser")
+@Controller
 public class SysUserController {
-
     @RequestMapping("/getByName")
     @ResponseBody
     public Wrapper<SysUser> getSysUser(String name){
-        SysUser sysUser=new SysUser();
-        sysUser.setName(name);
-        sysUser.setPasswd("123456");
-        return WrapMapper.ok(sysUser);
+        return WrapMapper.ok();
     }
+
 }

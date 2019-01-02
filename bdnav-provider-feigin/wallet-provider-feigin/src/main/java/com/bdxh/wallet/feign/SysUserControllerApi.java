@@ -1,8 +1,8 @@
-package com.bdxh.provider.api.demo.feign;
+package com.bdxh.wallet.feign;
 
 import com.bdxh.common.utils.wrapper.Wrapper;
-import com.bdxh.provider.api.demo.fallback.SysUserControllerFallback;
-import com.bdxh.provider.entity.demo.SysUser;
+import com.bdxh.demo.entity.SysUser;
+import com.bdxh.wallet.fallback.SysUserControllerFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;

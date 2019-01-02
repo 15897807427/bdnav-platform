@@ -1,4 +1,4 @@
-package com.bdxh;
+package com.bdxh.web.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
