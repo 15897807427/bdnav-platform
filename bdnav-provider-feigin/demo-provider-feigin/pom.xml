@@ -11,5 +11,12 @@
 
     <artifactId>demo-provider-feigin</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.bdxh</groupId>
+            <artifactId>demo-provider-entity</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

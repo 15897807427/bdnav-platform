@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/sysUser")
 @Controller
 public class SysUserController {
+
     @RequestMapping("/getByName")
     @ResponseBody
     public Wrapper<SysUser> getSysUser(String name){
