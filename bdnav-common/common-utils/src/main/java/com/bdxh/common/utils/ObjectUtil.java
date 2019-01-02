@@ -3,6 +3,7 @@ package com.bdxh.common.utils;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -50,5 +51,11 @@ public class ObjectUtil {
 		}
 		int random=(int)((Math.random()*9+1)*fac);
 		return String.valueOf(random);
+	}
+
+	//UUID生成
+	public static String getUuid(){
+		String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+		return uuid;
 	}
 }

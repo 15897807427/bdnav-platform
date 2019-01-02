@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 
 /**
- * @description: 统一下单实体类
+ * @description: 微信支付统一下单请求类
  * @author: xuyuan
  * @create: 2019-01-02 16:23
  **/
@@ -22,13 +22,13 @@ public class AppOrderRequest implements Serializable {
     private static final long serialVersionUID = -7845539846581510598L;
 
     /**
-     * 应用ID
+     * 应用ID 必传
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String appid;
 
     /**
-     * 商户号
+     * 商户号 必传
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String mch_id;
@@ -40,7 +40,7 @@ public class AppOrderRequest implements Serializable {
     private String device_info="WEB";
 
     /**
-     * 随机字符串
+     * 随机字符串 必传
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String nonce_str;
@@ -58,43 +58,43 @@ public class AppOrderRequest implements Serializable {
     private String sign_type="MD5";
 
     /**
-     * 商品描述
+     * 商品描述 必传
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String body;
 
     /**
-     * 商品详情
+     * 商品详情 非必须
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String detail;
 
     /**
-     * 附加数据
+     * 附加数据 非必须
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String attach;
 
     /**
-     * 商户订单号
+     * 商户订单号 必传
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String out_trade_no;
 
     /**
-     * 货币类型
+     * 货币类型 默认CNY
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String fee_type="CNY";
 
     /**
-     * 总金额 单位分
+     * 总金额 单位分 必传
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String total_fee;
 
     /**
-     * 终端的ip
+     * 终端的ip 必传
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String spbill_create_ip;
@@ -118,16 +118,16 @@ public class AppOrderRequest implements Serializable {
     private String goods_tag;
 
     /**
-     * 通知地址
+     * 通知地址 必传
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String notify_url;
 
     /**
-     * 交易类型
+     * 交易类型 默认APP
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String trade_type;
+    private String trade_type="APP";
 
     /**
      * 指定支付方式
