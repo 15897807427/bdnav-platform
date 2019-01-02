@@ -3,7 +3,7 @@ package com.bdxh.common.base.constant;
 import com.bdxh.common.base.enums.ErrorCodeEnum;
 import com.bdxh.common.base.exception.BusinessException;
 import com.google.common.collect.Lists;
-import org.springframework.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 import java.util.List;

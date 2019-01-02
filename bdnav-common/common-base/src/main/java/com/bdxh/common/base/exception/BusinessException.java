@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
  * @author: xuyuan
  * @create: 2018-12-17 14:25
  **/
-@Slf4j
 public class BusinessException extends RuntimeException {
 
 	/**
