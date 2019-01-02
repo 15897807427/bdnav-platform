@@ -17,4 +17,12 @@
     <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
     <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
   </resultMap>
+
+  <select id="getByOrderNo" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="BaseResultMap"/>
+    from wallet_account_recharge
+    where order_no=#{orderNo}
+  </select>
+
 </mapper>
