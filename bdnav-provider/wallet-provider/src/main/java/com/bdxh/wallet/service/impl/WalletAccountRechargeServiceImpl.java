@@ -15,8 +15,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class WalletAccountRechargeServiceImpl  extends BaseService<WalletAccountRecharge> implements WalletAccountRechargeService{
 
-      @Autowired
-      private WalletAccountRechargeMapper walletAccountRechargeMapper;
+    @Autowired
+    private WalletAccountRechargeMapper walletAccountRechargeMapper;
 
 
     @Override
@@ -24,4 +24,5 @@ public class WalletAccountRechargeServiceImpl  extends BaseService<WalletAccount
         WalletAccountRecharge walletAccountRecharge=walletAccountRechargeMapper.getByOrderNo(orderNo);
         return walletAccountRecharge;
     }
+
 }

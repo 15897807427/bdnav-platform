@@ -1,11 +1,15 @@
 package com.bdxh.wallet.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Table(name = "wallet_account_recharge")
-public class WalletAccountRecharge {
+public class WalletAccountRecharge implements Serializable {
+
+    private static final long serialVersionUID = -8334989632860893608L;
+
     /**
      * 主键
      */

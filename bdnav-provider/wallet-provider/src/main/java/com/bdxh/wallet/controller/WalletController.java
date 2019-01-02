@@ -68,11 +68,11 @@ public class WalletController {
             Preconditions.checkNotNull(walletAccountRecharge,"订单信息不存在");
             walletAccountRecharge.setStatus(Byte.valueOf("status"));
             walletAccountRechargeService.update(walletAccountRecharge);
+            return WrapMapper.ok();
         }catch (Exception e){
             log.error(e.getMessage());
             return WrapMapper.error(e.getMessage());
         }
-        return WrapMapper.ok();
     }
 
 }
