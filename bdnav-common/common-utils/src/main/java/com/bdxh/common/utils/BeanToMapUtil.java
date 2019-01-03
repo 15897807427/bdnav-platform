@@ -14,9 +14,9 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class BeanMapUtil {
+public class BeanToMapUtil {
 
-	private static Logger logger = LoggerFactory.getLogger(BeanMapUtil.class);
+	private static Logger logger = LoggerFactory.getLogger(BeanToMapUtil.class);
 
 	/**
 	 * 

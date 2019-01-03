@@ -5,6 +5,7 @@ import com.bdxh.common.utils.ObjectUtil;
 import com.bdxh.common.wechatpay.app.domain.AppOrderRequest;
 import com.bdxh.common.wechatpay.app.domain.AppOrderResponse;
 import com.bdxh.wallet.feign.WalletControllerClient;
+import com.bdxh.web.wechat.dto.WxPayAppOrderDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +30,7 @@ public class WechatAppPayController {
 
     @RequestMapping("/order")
     @ResponseBody
-    public Object wechatAppPayOrder(){
+    public Object wechatAppPayOrder(WxPayAppOrderDto wxPayAppOrderDto){
 
         //获取参数
         //下单
