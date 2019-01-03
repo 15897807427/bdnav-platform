@@ -25,4 +25,10 @@ public class WalletAccountRechargeServiceImpl  extends BaseService<WalletAccount
         return walletAccountRecharge;
     }
 
+    @Override
+    public int getChangeRechargeecords(WalletAccountRecharge walletAccountRecharge) {
+        int flag= walletAccountRechargeMapper.getChangeRechargeecords(walletAccountRecharge);
+        return flag;
+    }
+
 }

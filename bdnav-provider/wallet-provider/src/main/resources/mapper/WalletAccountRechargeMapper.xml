@@ -24,4 +24,17 @@
     where order_no=#{orderNo}
   </select>
 
+  <update id="getChangeRechargeecords" parameterType="WalletAccountRecharge">
+    update wallet_account_recharge
+    <trim prefix="SET" suffixOverrides=",">
+      <if test="null != status and '' != status">
+        status=#{status},
+      </if>
+      <if test="null != thirdOrderNo and '' != thirdOrderNo">
+        third_order_no=#{thirdOrderNo},
+      </if>
+    </trim>
+    where order_no=#{orderNo}
+  </update>
+
 </mapper>

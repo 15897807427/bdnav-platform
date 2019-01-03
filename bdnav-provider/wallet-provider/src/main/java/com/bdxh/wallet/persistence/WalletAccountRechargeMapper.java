@@ -13,4 +13,9 @@ public interface WalletAccountRechargeMapper extends Mapper<WalletAccountRecharg
      * @return
      */
     WalletAccountRecharge getByOrderNo(@Param("orderNo") Long orderNo);
+    /**
+     * 根据订单号更改充值记录
+     * @return
+     */
+    int  getChangeRechargeecords(WalletAccountRecharge walletAccountRecharge);
 }
