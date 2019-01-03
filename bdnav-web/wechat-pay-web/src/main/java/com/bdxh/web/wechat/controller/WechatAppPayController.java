@@ -2,7 +2,6 @@ package com.bdxh.web.wechat.controller;
 
 import com.bdxh.common.base.constant.WechatPayConstants;
 import com.bdxh.common.utils.ObjectUtil;
-import com.bdxh.common.utils.wrapper.Wrapper;
 import com.bdxh.common.wechatpay.app.domain.AppOrderRequest;
 import com.bdxh.common.wechatpay.app.domain.AppOrderResponse;
 import com.bdxh.wallet.feign.WalletControllerClient;
@@ -64,7 +63,7 @@ public class WechatAppPayController {
 
     @RequestMapping("/noticet")
     @ResponseBody
-    public Object wechatAppPayNoticet(@RequestBody AppOrderResponse appOrderResponse){
+    public Object wechatAppPayNoticet(){
         walletControllerClient.addRechargeLog(new Long(1537),new BigDecimal(123));
         return "sssss";
     }
