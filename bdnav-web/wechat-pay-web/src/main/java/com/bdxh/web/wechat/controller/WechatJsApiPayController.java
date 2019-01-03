@@ -2,13 +2,11 @@ package com.bdxh.web.wechat.controller;
 
 import com.bdxh.common.base.constant.WechatPayConstants;
 import com.bdxh.common.utils.ObjectUtil;
+import com.bdxh.common.utils.WxPayUtil;
 import com.bdxh.common.wechatpay.app.domain.AppOrderResponse;
-import com.bdxh.common.wechatpay.js.JSentity.JsOrderRequest;
 import com.bdxh.wallet.feign.WalletControllerClient;
-import com.bdxh.web.WxJsPayUtil.WxPayUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package com.bdxh.web.WxJsPayUtil;
+package com.bdxh.common.utils;
 
 import com.bdxh.common.base.enums.WxPayEnum;
 
@@ -9,22 +9,19 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class WxPayUtil {
+
     public static final String FIELD_SIGN = "sign";
+
     /**
      * 生成订单号
      * @return
      */
     public static String getOrderNo() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
-
         Date date = new Date();
-
         String str = simpleDateFormat.format(date);
-
         Random random = new Random();
-
         int rannum = (int) (random.nextDouble() * (9999 - 1000 + 1)) + 1000; // 获取4位随机数
-
         return str+rannum ;
     }
 
@@ -80,7 +77,7 @@ public class WxPayUtil {
      * @return MD5结果
      */
     public static String MD5(String data) throws Exception {
-        java.security.MessageDigest md = MessageDigest.getInstance("MD5");
+        MessageDigest md = MessageDigest.getInstance("MD5");
         byte[] array = md.digest(data.getBytes("UTF-8"));
         StringBuilder sb = new StringBuilder();
         for (byte item : array) {
@@ -136,8 +133,5 @@ public class WxPayUtil {
         }
         return amLong.toString();
     }
-
-
-
-
+    
 }
