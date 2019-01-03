@@ -29,7 +29,8 @@ public interface WalletControllerClient {
      */
     @RequestMapping("/addRechargeLog")
     @ResponseBody
-    Wrapper addRechargeLog(@RequestParam(name = "userId") Long userId, @RequestParam(name = "amount") BigDecimal amount);
+    Wrapper addRechargeLog(@RequestParam(name = "userId") Long userId, @RequestParam(name = "amount") BigDecimal amount,
+                           @RequestParam("orderType") String orderType);
 
     /**
      * 更改用户充值记录状态
@@ -40,5 +41,15 @@ public interface WalletControllerClient {
     @RequestMapping("/changeRechargeLog")
     @ResponseBody
     Wrapper changeRechargeLog(@RequestParam(name = "orderNo") Long orderNo, @RequestParam(name = "status") Byte status);
+
+    /**
+     * 用户回调时更改用户充值记录状态及第三方支付号
+     * @param orderNo
+     * @return
+     */
+    @RequestMapping("/changeRechargeLog")
+    @ResponseBody
+    Wrapper changeRechargeLog(@RequestParam(name="orderNo") Long orderNo,@RequestParam(name="status") Byte status,
+                                    @RequestParam(name="thirdOrderNo") String thirdOrderNo);
 
 }

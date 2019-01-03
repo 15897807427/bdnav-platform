@@ -36,6 +36,12 @@ public class WalletAccountRecharge implements Serializable {
     private Long orderNo;
 
     /**
+     * 订单类型
+     */
+    @Column(name = "order_type")
+    private String orderType;
+
+    /**
      * 第三方支付订单号
      */
     @Column(name = "third_order_no")
@@ -145,6 +151,24 @@ public class WalletAccountRecharge implements Serializable {
      */
     public void setOrderNo(Long orderNo) {
         this.orderNo = orderNo;
+    }
+
+    /**
+     * 获取订单类型
+     *
+     * @return order_no - 订单类型
+     */
+    public String getOrderType() {
+        return orderType;
+    }
+
+    /**
+     * 设置订单类型
+     *
+     * @param orderType 订单类型
+     */
+    public void setOrderType(String orderType) {
+        this.orderType = orderType;
     }
 
     /**

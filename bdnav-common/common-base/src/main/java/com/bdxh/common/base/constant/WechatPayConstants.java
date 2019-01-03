@@ -32,6 +32,12 @@ public class WechatPayConstants {
          * 支付类型
          */
          String trade_type="JSAPI";
+
+        /**
+         * 统一下单接口url
+         */
+        String order_url="";
+
     }
 
     public interface APP {
@@ -55,6 +61,16 @@ public class WechatPayConstants {
          * 回调地址
          */
         String notice_url="/wechatAppPay/notice";
+
+        /**
+         * 支付类型
+         */
+        String trade_type="APP";
+
+        /**
+         * 统一下单接口url
+         */
+        String order_url="";
 
     }
 }

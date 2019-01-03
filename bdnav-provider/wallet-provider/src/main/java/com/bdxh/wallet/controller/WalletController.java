@@ -33,16 +33,19 @@ public class WalletController {
      */
     @RequestMapping("/addRechargeLog")
     @ResponseBody
-    public Object addRechargeLog(@RequestParam(name="userId") Long userId,@RequestParam(name="amount") BigDecimal amount){
+    public Object addRechargeLog(@RequestParam(name="userId") Long userId,@RequestParam(name="amount") BigDecimal amount,
+                                @RequestParam("orderType") String orderType){
         try {
             Preconditions.checkArgument(userId!=null,"用户信息不能为空");
             Preconditions.checkArgument(amount!=null&&amount.doubleValue()>0,"金额输入不正确");
+            Preconditions.checkArgument(StringUtils.isNotEmpty(orderType),"订单类型不能为空");
             WalletAccountRecharge recharge=new WalletAccountRecharge();
             recharge.setUserId(userId);
             Long orderNo = snowflakeIdWorker.nextId();
             recharge.setOrderNo(orderNo);
             recharge.setRechargeMoney(amount);
             recharge.setStatus(Byte.valueOf("0"));
+            recharge.setOrderType(orderType);
             //调用service
             walletAccountRechargeService.save(recharge);
             return WrapMapper.ok(orderNo);
@@ -78,7 +81,7 @@ public class WalletController {
 
 
     /**
-     *用户回调时更改用户充值记录状态及第三方支付号
+     * 用户回调时更改用户充值记录状态及第三方支付号
      * @param orderNo
      * @return
      */
