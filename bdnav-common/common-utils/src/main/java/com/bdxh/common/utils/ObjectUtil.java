@@ -1,8 +1,10 @@
 package com.bdxh.common.utils;
 
+import java.security.SecureRandom;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -12,6 +14,10 @@ import java.util.concurrent.locks.ReentrantLock;
  * @create: 2018-12-17 16:57
  **/
 public class ObjectUtil {
+
+	private static final String SYMBOLS = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+	private static final Random RANDOM = new SecureRandom();
 
 	//根据时间毫秒值生成id
 	public static synchronized String getId() {
@@ -58,4 +64,20 @@ public class ObjectUtil {
 		String uuid = UUID.randomUUID().toString().replaceAll("-", "");
 		return uuid;
 	}
+
+
+	/**
+	 * 获取随机字符串 Nonce Str
+	 *
+	 * @return String 随机字符串
+	 */
+	public static String generateNonceStr() {
+		char[] nonceChars = new char[32];
+		for (int index = 0; index < nonceChars.length; ++index) {
+			nonceChars[index] = SYMBOLS.charAt(RANDOM.nextInt(SYMBOLS.length()));
+		}
+		return new String(nonceChars);
+	}
+
+
 }

@@ -26,8 +26,12 @@ public class WechatPayConstants {
         /**
          * 回调地址
          */
-        String notice_url="/wechatJsPay/notice";
+        String notice_url="http://wxy.bdxht.com/wechatJsPay/notice/";
 
+        /**
+         * 支付类型
+         */
+         String trade_type="JSAPI";
     }
 
     public interface APP {

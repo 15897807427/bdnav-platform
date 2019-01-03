@@ -33,7 +33,6 @@ public class WechatAppPayController {
     public Object wechatAppPayOrder(){
 
         //获取参数
-
         //下单
         walletControllerClient.addRechargeLog(new Long(1537),new BigDecimal(123));
 
