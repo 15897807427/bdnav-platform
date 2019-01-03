@@ -2,13 +2,18 @@ package com.bdxh.web.wechat.controller;
 
 import com.bdxh.common.base.constant.WechatPayConstants;
 import com.bdxh.common.utils.ObjectUtil;
+import com.bdxh.common.utils.wrapper.Wrapper;
 import com.bdxh.common.wechatpay.app.domain.AppOrderRequest;
 import com.bdxh.common.wechatpay.app.domain.AppOrderResponse;
+import com.bdxh.wallet.feign.WalletControllerClient;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.math.BigDecimal;
 
 /**
  * @description: 微信APP支付控制器
@@ -19,6 +24,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/wechatAppPay")
 @Slf4j
 public class WechatAppPayController {
+
+    @Autowired
+    private WalletControllerClient walletControllerClient;
 
     @RequestMapping("/order")
     @ResponseBody
@@ -52,6 +60,13 @@ public class WechatAppPayController {
     public Object wechatAppPayNotice(@RequestBody AppOrderResponse appOrderResponse){
 
         return null;
+    }
+
+    @RequestMapping("/noticet")
+    @ResponseBody
+    public Object wechatAppPayNoticet(@RequestBody AppOrderResponse appOrderResponse){
+        walletControllerClient.addRechargeLog(new Long(1537),new BigDecimal(123));
+        return "sssss";
     }
 
 }

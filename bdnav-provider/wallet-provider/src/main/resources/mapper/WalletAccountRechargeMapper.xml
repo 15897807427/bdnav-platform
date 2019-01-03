@@ -19,8 +19,7 @@
   </resultMap>
 
   <select id="getByOrderNo" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
-    <include refid="BaseResultMap"/>
+    select *
     from wallet_account_recharge
     where order_no=#{orderNo}
   </select>
