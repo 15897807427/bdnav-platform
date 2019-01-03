@@ -17,7 +17,7 @@ import java.math.BigDecimal;
  **/
 @Service
 @FeignClient(value = "wallet-provider-cluster",fallback= WalletControllerFallback.class)
-@RequestMapping("/changeRechargeLog")
+@RequestMapping("/wallet")
 public interface WalletControllerClient {
 
     /**
