@@ -31,6 +31,11 @@ public class WechatAppPayController {
     @ResponseBody
     public Object wechatAppPayOrder(){
 
+        //获取参数
+
+        //下单
+        walletControllerClient.addRechargeLog(new Long(1537),new BigDecimal(123));
+
         AppOrderRequest appOrderRequest=new AppOrderRequest();
         //应用id
         appOrderRequest.setAppid(WechatPayConstants.APP.app_id);

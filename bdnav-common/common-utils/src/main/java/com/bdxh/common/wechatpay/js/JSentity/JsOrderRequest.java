@@ -1,4 +1,4 @@
-package com.bdxh.common.wechatpay.app.domain;
+package com.bdxh.common.wechatpay.js.JSentity;
 
 import com.bdxh.common.utils.CDATASectionAdapter;
 import com.bdxh.common.utils.XmlUtils;
@@ -11,25 +11,25 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 
 /**
- * @description: 微信支付统一下单请求类
+ * @description: 统一下单实体类
  * @author: xuyuan
  * @create: 2019-01-02 16:23
  **/
 @Data
 @XmlRootElement(name = "xml")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class AppOrderRequest implements Serializable {
+public class JsOrderRequest implements Serializable {
 
     private static final long serialVersionUID = -7845539846581510598L;
 
     /**
-     * 应用ID 必传
+     * 应用ID
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String appid;
 
     /**
-     * 商户号 必传
+     * 商户号
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String mch_id;
@@ -41,7 +41,7 @@ public class AppOrderRequest implements Serializable {
     private String device_info = "WEB";
 
     /**
-     * 随机字符串 必传
+     * 随机字符串
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String nonce_str;
@@ -59,43 +59,43 @@ public class AppOrderRequest implements Serializable {
     private String sign_type = "MD5";
 
     /**
-     * 商品描述 必传
+     * 商品描述
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String body;
 
     /**
-     * 商品详情 非必须
+     * 商品详情
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String detail;
 
     /**
-     * 附加数据 非必须
+     * 附加数据
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String attach;
 
     /**
-     * 商户订单号 必传
+     * 商户订单号
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String out_trade_no;
 
     /**
-     * 货币类型 默认CNY
+     * 货币类型
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String fee_type = "CNY";
 
     /**
-     * 总金额 单位分 必传
+     * 总金额 单位分
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String total_fee;
 
     /**
-     * 终端的ip 必传
+     * 终端的ip
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String spbill_create_ip;
@@ -119,16 +119,16 @@ public class AppOrderRequest implements Serializable {
     private String goods_tag;
 
     /**
-     * 通知地址 必传
+     * 通知地址
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String notify_url;
 
     /**
-     * 交易类型 默认APP
+     * 交易类型
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String trade_type="APP";
+    private String trade_type;
 
     /**
      * 指定支付方式
@@ -143,10 +143,10 @@ public class AppOrderRequest implements Serializable {
     private String receipt;
 
     public static void main(String[] args) {
-        AppOrderRequest appOrderRequest = new AppOrderRequest();
+        com.bdxh.common.wechatpay.app.domain.AppOrderRequest appOrderRequest = new com.bdxh.common.wechatpay.app.domain.AppOrderRequest();
         String str = XmlUtils.toXML(appOrderRequest);
         System.out.println(str);
-        AppOrderRequest t=XmlUtils.fromXML(str, AppOrderRequest.class);
+        com.bdxh.common.wechatpay.app.domain.AppOrderRequest t=XmlUtils.fromXML(str, com.bdxh.common.wechatpay.app.domain.AppOrderRequest.class);
         System.out.println(str);
     }
 
