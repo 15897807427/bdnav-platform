@@ -45,17 +45,17 @@ public class WechatPayConstants {
         /**
          * 商户号
          */
-        String mch_id="1515043731";
+        String mch_id="1515043424243731";
 
         /**
          * 秘钥
          */
-        String app_key="sB5ms2Y3mNs5QsahJk58I61Dq2Ax12sU";
+        String app_key="sB5ms2Y54543mNs5QsahJ54xdsk58Isdf61Dq2Ax12sU";
 
         /**
          * 应用id
          */
-        String app_id="wxe99d4bf57f4ce53f";
+        String app_id="wxefsdf99d4bdsffsfdsfsf57fsdf4ce53f";
 
         /**
          * 回调地址
