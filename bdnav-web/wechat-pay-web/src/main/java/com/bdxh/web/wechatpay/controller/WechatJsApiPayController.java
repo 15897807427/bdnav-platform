@@ -1,4 +1,4 @@
-package com.bdxh.web.wechat.controller;
+package com.bdxh.web.wechatpay.controller;
 
 import com.bdxh.common.base.constant.WechatPayConstants;
 import com.bdxh.common.utils.ObjectUtil;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 

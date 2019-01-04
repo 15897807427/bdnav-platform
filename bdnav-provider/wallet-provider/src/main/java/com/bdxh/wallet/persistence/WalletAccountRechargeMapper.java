@@ -5,6 +5,9 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 
+import java.util.List;
+import java.util.Map;
+
 @Repository
 public interface WalletAccountRechargeMapper extends Mapper<WalletAccountRecharge> {
     /**
@@ -14,8 +17,9 @@ public interface WalletAccountRechargeMapper extends Mapper<WalletAccountRecharg
      */
     WalletAccountRecharge getByOrderNo(@Param("orderNo") Long orderNo);
     /**
-     * 根据订单号更改充值记录
+     * 根据条件查询充值列表
+     * @param param
      * @return
      */
-    int  getChangeRechargeecords(WalletAccountRecharge walletAccountRecharge);
+    List<WalletAccountRecharge> getByCondition(Map<String,Object> param);
 }

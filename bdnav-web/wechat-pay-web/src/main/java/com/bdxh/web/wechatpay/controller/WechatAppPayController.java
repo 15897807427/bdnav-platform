@@ -1,4 +1,4 @@
-package com.bdxh.web.wechat.controller;
+package com.bdxh.web.wechatpay.controller;
 
 import com.bdxh.common.base.constant.WechatPayConstants;
 import com.bdxh.common.base.enums.WxPayStatusEnum;
@@ -13,8 +13,8 @@ import com.bdxh.common.wechatpay.app.domain.AppNoticeReturn;
 import com.bdxh.common.wechatpay.app.domain.AppOrderRequest;
 import com.bdxh.common.wechatpay.app.domain.AppOrderResponse;
 import com.bdxh.wallet.feign.WalletControllerClient;
-import com.bdxh.web.wechat.dto.WxPayAppOrderDto;
-import com.bdxh.web.wechat.vo.WxPayAppOrderVo;
+import com.bdxh.web.wechatpay.dto.WxPayAppOrderDto;
+import com.bdxh.web.wechatpay.vo.WxPayAppOrderVo;
 import com.google.common.base.Preconditions;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -50,6 +50,13 @@ public class WechatAppPayController {
     @Autowired
     private WalletControllerClient walletControllerClient;
 
+    /**
+     * 用户充值app下单接口
+     * @param wxPayAppOrderDto
+     * @param bindingResult
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/order")
     @ResponseBody
     public Object wechatAppPayOrder(@Valid WxPayAppOrderDto wxPayAppOrderDto, BindingResult bindingResult) throws Exception {
@@ -129,7 +136,11 @@ public class WechatAppPayController {
     }
 
 
-
+    /**
+     * 用户充值app回调接口
+     * @param appNoticeResponse
+     * @param response
+     */
     @RequestMapping("/notice")
     public void wechatAppPayNotice(@RequestBody AppNoticeResponse appNoticeResponse, HttpServletResponse response) {
         try {

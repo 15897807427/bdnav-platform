@@ -12,7 +12,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>demo-provider-entity</module>
         <module>wallet-provider-entity</module>
         <module>backend-provider-entity</module>
     </modules>

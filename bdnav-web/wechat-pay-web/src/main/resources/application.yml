@@ -2,6 +2,6 @@ server:
   port: 9011
 spring:
   application:
-    name: wechat-pay-cluster
+    name: wechatpay-pay-cluster
   profiles:
     active: dev

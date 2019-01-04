@@ -2,7 +2,10 @@ package com.bdxh.wallet.service;
 
 import com.bdxh.common.web.support.IService;
 import com.bdxh.wallet.entity.WalletAccountRecharge;
+import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.Map;
 
 /**
  * @description:
@@ -17,8 +20,13 @@ public interface WalletAccountRechargeService extends IService<WalletAccountRech
      */
     WalletAccountRecharge getByOrderNO(Long orderNo);
     /**
-     * 根据订单号更改充值记录
+     * 根据id更改充值记录
      * @return
      */
-    int  getChangeRechargeecords(WalletAccountRecharge walletAccountRecharge);
+    int changeRechargeLog(WalletAccountRecharge walletAccountRecharge);
+    /**
+     * 根据条件分页查询充值记录
+     * @return
+     */
+    PageInfo<WalletAccountRecharge> getRechargeLogPage(Map<String,Object> param, int pageNum, int pageSize);
 }

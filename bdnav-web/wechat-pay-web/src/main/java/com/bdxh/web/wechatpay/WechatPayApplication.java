@@ -1,4 +1,4 @@
-package com.bdxh.web.wechat;
+package com.bdxh.web.wechatpay;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
