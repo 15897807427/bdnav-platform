@@ -1,17 +1,21 @@
 package com.bdxh.web.wechat.controller;
 
 import com.bdxh.common.base.constant.WechatPayConstants;
+import com.bdxh.common.base.enums.WxPayStatusEnum;
 import com.bdxh.common.utils.BeanToMapUtil;
 import com.bdxh.common.utils.MD5;
 import com.bdxh.common.utils.ObjectUtil;
 import com.bdxh.common.utils.XmlUtils;
 import com.bdxh.common.utils.wrapper.WrapMapper;
 import com.bdxh.common.utils.wrapper.Wrapper;
+import com.bdxh.common.wechatpay.app.domain.AppNoticeResponse;
+import com.bdxh.common.wechatpay.app.domain.AppNoticeReturn;
 import com.bdxh.common.wechatpay.app.domain.AppOrderRequest;
 import com.bdxh.common.wechatpay.app.domain.AppOrderResponse;
 import com.bdxh.wallet.feign.WalletControllerClient;
 import com.bdxh.web.wechat.dto.WxPayAppOrderDto;
 import com.bdxh.web.wechat.vo.WxPayAppOrderVo;
+import com.google.common.base.Preconditions;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +29,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.SortedMap;
 import java.util.stream.Collectors;
@@ -122,9 +128,50 @@ public class WechatAppPayController {
 
 
     @RequestMapping("/notice")
-    public Object wechatAppPayNotice(@RequestBody AppOrderResponse appOrderResponse){
-
-        return null;
+    public void wechatAppPayNotice(@RequestBody AppNoticeResponse appNoticeResponse, HttpServletResponse response) {
+        try {
+            Preconditions.checkNotNull(appNoticeResponse,"回调内容为空");
+            Preconditions.checkArgument(StringUtils.equals("SUCCESS",appNoticeResponse.getReturn_code()),"回调状态不正确");
+            //获取业务结果
+            String resultCode=appNoticeResponse.getResult_code();
+            Preconditions.checkArgument(StringUtils.equals("SUCCESS",resultCode)||StringUtils.equals("FAIL",resultCode),"业务状态不正确");
+            //验证签名
+            SortedMap<String, String> returnMap = BeanToMapUtil.objectToTreeMap(appNoticeResponse);
+            if (returnMap.containsKey("sign")){
+                returnMap.remove("sign");
+            }
+            String returnStr = BeanToMapUtil.mapToString(returnMap);
+            String sign = MD5.md5(returnStr + "&key=" + WechatPayConstants.APP.app_key);
+            Preconditions.checkArgument(StringUtils.equals(sign,appNoticeResponse.getSign()),"验签不通过");
+            //处理业务结果
+            Byte status=null;
+            if (StringUtils.equals("SUCCESS",resultCode)){
+               status= WxPayStatusEnum.PAY_SUCCESS.getCode();
+            }
+            if (StringUtils.equals("FAIL",resultCode)){
+                status=WxPayStatusEnum.PAY_FAIL.getCode();
+            }
+            //更新业务表
+            Long orderNo = Long.valueOf(appNoticeResponse.getOut_trade_no());
+            Wrapper wrapper = walletControllerClient.changeRechargeLog(orderNo, status, appNoticeResponse.getTransaction_id());
+            Preconditions.checkArgument(wrapper.getCode()==200,"更新支付结果失败");
+            //返回微信结果
+            AppNoticeReturn appNoticeReturn=new AppNoticeReturn();
+            appNoticeReturn.setReturn_code("SUCCESS");
+            appNoticeReturn.setReturn_msg("ok");
+            String returnXml = XmlUtils.toXML(appNoticeReturn);
+            response.getOutputStream().write(returnXml.getBytes("utf-8"));
+        }catch (Exception e){
+            AppNoticeReturn appNoticeReturn=new AppNoticeReturn();
+            appNoticeReturn.setReturn_code("FAIL");
+            appNoticeReturn.setReturn_msg("no");
+            String returnXml = XmlUtils.toXML(appNoticeReturn);
+            try {
+                response.getOutputStream().write(returnXml.getBytes("utf-8"));
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
 }

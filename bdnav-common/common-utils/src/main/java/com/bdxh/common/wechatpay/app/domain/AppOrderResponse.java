@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
- * @description: 微信支付统一下单响应类
+ * @description: 微信app支付统一下单响应类
  * @author: xuyuan
  * @create: 2019-01-02 19:26
  **/

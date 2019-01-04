@@ -53,7 +53,7 @@ public class WalletAccountRecharge implements Serializable {
     private String acceptseq;
 
     /**
-     * 状态 1 未支付 2 支付中 3 支付成功 4 支付失败 5 充值中 6 充值成功 7充值失败
+     * 状态 1 未支付 2 支付中 3 支付成功 4 支付失败 5 未充值 6 充值中 7充值成功 8 充值失败
      */
     private Byte status;
 
@@ -208,18 +208,18 @@ public class WalletAccountRecharge implements Serializable {
     }
 
     /**
-     * 获取状态 1 未支付 2 支付中 3 支付成功 4 支付失败 5 充值中 6 充值成功 7充值失败
+     * 获取状态 1 未支付 2 支付中 3 支付成功 4 支付失败 5 未充值 6 充值中 7充值成功 8 充值失败
      *
-     * @return status - 状态 1 未支付 2 支付中 3 支付成功 4 支付失败 5 充值中 6 充值成功 7充值失败
+     * @return status - 状态 1 未支付 2 支付中 3 支付成功 4 支付失败 5 未充值 6 充值中 7充值成功 8 充值失败
      */
     public Byte getStatus() {
         return status;
     }
 
     /**
-     * 设置状态 1 未支付 2 支付中 3 支付成功 4 支付失败 5 充值中 6 充值成功 7充值失败
+     * 设置状态 1 未支付 2 支付中 3 支付成功 4 支付失败 5 未充值 6 充值中 7充值成功 8 充值失败
      *
-     * @param status 状态 1 未支付 2 支付中 3 支付成功 4 支付失败 5 充值中 6 充值成功 7充值失败
+     * @param status 状态 1 未支付 2 支付中 3 支付成功 4 支付失败 5 未充值 6 充值中 7充值成功 8 充值失败
      */
     public void setStatus(Byte status) {
         this.status = status;

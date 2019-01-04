@@ -1,7 +1,6 @@
 package com.bdxh.common.wechatpay.app.domain;
 
 import com.bdxh.common.utils.CDATASectionAdapter;
-import com.bdxh.common.utils.XmlUtils;
 import lombok.Data;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -11,37 +10,49 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 
 /**
- * @description: 微信app支付统一下单请求类
+ * @description: 微信app支付回调实体类
  * @author: xuyuan
- * @create: 2019-01-02 16:23
+ * @create: 2019-01-04 09:43
  **/
 @Data
 @XmlRootElement(name = "xml")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class AppOrderRequest implements Serializable {
+public class AppNoticeResponse implements Serializable {
 
-    private static final long serialVersionUID = -7845539846581510598L;
+    private static final long serialVersionUID = 4598522363009685874L;
 
     /**
-     * 应用ID 必传
+     * 通信标识
+     */
+    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
+    private String return_code;
+
+    /**
+     * 返回信息
+     */
+    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
+    private String return_msg;
+
+    /**
+     * 应用id
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String appid;
 
     /**
-     * 商户号 必传
+     * 商户号
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String mch_id;
 
     /**
-     * 设备号 默认WEB
+     * 设备号
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String device_info = "WEB";
+    private String device_info;
 
     /**
-     * 随机字符串 必传
+     * 随机字符串
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String nonce_str;
@@ -53,101 +64,111 @@ public class AppOrderRequest implements Serializable {
     private String sign;
 
     /**
-     * 签名类型 默认MD5
+     * 业务结果
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String sign_type = "MD5";
+    private String result_code;
 
     /**
-     * 商品描述 必传
+     * 错误代码
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String body;
+    private String err_code;
 
     /**
-     * 商品详情 非必须
+     * 错误描述
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String detail;
+    private String err_code_des;
 
     /**
-     * 附加数据 非必须
+     * 用户openid
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String attach;
+    private String openid;
 
     /**
-     * 商户订单号 必传
+     * 是否关注公众号
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String out_trade_no;
+    private String is_subscribe;
 
     /**
-     * 货币类型 默认CNY
+     * 交易类型 APP
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String fee_type = "CNY";
+    private String trade_type;
 
     /**
-     * 总金额 单位分 必传
+     * 付款银行
+     */
+    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
+    private String bank_type;
+
+    /**
+     * 总金额
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String total_fee;
 
     /**
-     * 终端的ip 必传
+     * 货币种类
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String spbill_create_ip;
+    private String fee_type;
 
     /**
-     * 交易起始时间
+     * 现金金额
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String time_start;
+    private String cash_fee;
 
     /**
-     * 交易失效时间
+     * 现金货币种类
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String time_expire;
+    private String cash_fee_type;
 
     /**
-     * 代金券优惠标记
+     * 代金券数量
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String goods_tag;
+    private String coupon_count;
 
     /**
-     * 通知地址 必传
+     * 代金券id
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String notify_url;
+    private String coupon_id_$n;
 
     /**
-     * 交易类型 默认APP
+     * 单个代金券支付金额
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String trade_type="APP";
+    private String coupon_fee_$n;
 
     /**
-     * 指定支付方式
+     * 微信支付订单号
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String limit_pay;
+    private String transaction_id;
 
     /**
-     * 开发票入口开放标识
+     * 商户订单号
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String receipt;
+    private String out_trade_no;
 
-    public static void main(String[] args) {
-        AppOrderRequest appOrderRequest = new AppOrderRequest();
-        String str = XmlUtils.toXML(appOrderRequest);
-        System.out.println(str);
-        AppOrderRequest t=XmlUtils.fromXML(str, AppOrderRequest.class);
-        System.out.println(str);
-    }
+    /**
+     * 商家数据包
+     */
+    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
+    private String attach;
+
+    /**
+     * 支付完成时间
+     */
+    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
+    private String time_end;
 
 }
