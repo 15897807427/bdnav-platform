@@ -45,22 +45,22 @@ public class WechatPayConstants {
         /**
          * 商户号
          */
-        String mch_id="151505453421";
+        String mch_id="1515043731";
 
         /**
          * 秘钥
          */
-        String app_key="sB5ms2Y3mNserwdsfdgwer2Ax12sU";
+        String app_key="sB5ms2Y3mNs5QsahJk58I61Dq2Ax12sU";
 
         /**
          * 应用id
          */
-        String app_id="wxe99d4bdaasdzf4ce53f";
+        String app_id="wxe99d4bf57f4ce53f";
 
         /**
          * 回调地址
          */
-        String notice_url="/wechatAppPay/notice";
+        String notice_url="http://localhost:9011/wechatAppPay/notice";
 
         /**
          * 支付类型
@@ -70,7 +70,7 @@ public class WechatPayConstants {
         /**
          * 统一下单接口url
          */
-        String order_url="";
+        String order_url="https://api.mch.weixin.qq.com/pay/unifiedorder\n";
 
     }
 }

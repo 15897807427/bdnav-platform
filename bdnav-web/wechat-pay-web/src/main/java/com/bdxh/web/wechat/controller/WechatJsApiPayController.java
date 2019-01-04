@@ -23,7 +23,7 @@ import java.util.Map;
  * @create: 2019-01-02 18:37
  **/
 @Controller
-@RequestMapping("/wechatAppPay")
+@RequestMapping("/wechatJsPay")
 @Slf4j
 public class WechatJsApiPayController {
 
@@ -41,7 +41,7 @@ public class WechatJsApiPayController {
         String body = request.getParameter("body");
         String amount = request.getParameter("amount");
         //下单
-        walletControllerClient.addRechargeLog(new Long(1537), new BigDecimal(123));
+        //walletControllerClient.addRechargeLog(new Long(1537), new BigDecimal(123));
         try {
             //公众账号id
             paraMap.put("appid", WechatPayConstants.JS.app_id);
@@ -90,7 +90,7 @@ public class WechatJsApiPayController {
     @RequestMapping("/noticet")
     @ResponseBody
     public Object wechatAppPayNoticet(@RequestBody AppOrderResponse appOrderResponse){
-        walletControllerClient.addRechargeLog(new Long(1537),new BigDecimal(123));
+        //walletControllerClient.addRechargeLog(new Long(1537),new BigDecimal(123));
         return "sssss";
     }
 

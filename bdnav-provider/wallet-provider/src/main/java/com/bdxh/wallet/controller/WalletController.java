@@ -34,7 +34,7 @@ public class WalletController {
     @RequestMapping("/addRechargeLog")
     @ResponseBody
     public Object addRechargeLog(@RequestParam(name="userId") Long userId,@RequestParam(name="amount") BigDecimal amount,
-                                @RequestParam("orderType") String orderType){
+                                @RequestParam("orderType") String orderType,@RequestParam(name = "orderStatus",defaultValue = "0") Byte orderStatus){
         try {
             Preconditions.checkArgument(userId!=null,"用户信息不能为空");
             Preconditions.checkArgument(amount!=null&&amount.doubleValue()>0,"金额输入不正确");
@@ -46,6 +46,7 @@ public class WalletController {
             recharge.setRechargeMoney(amount);
             recharge.setStatus(Byte.valueOf("0"));
             recharge.setOrderType(orderType);
+            recharge.setStatus(orderStatus);
             //调用service
             walletAccountRechargeService.save(recharge);
             return WrapMapper.ok(orderNo);
@@ -61,7 +62,7 @@ public class WalletController {
      * @param orderNo
      * @return
      */
-    @RequestMapping("/changeRechargeLog")
+    @RequestMapping("/changeRechargeLogStatus")
     @ResponseBody
     public Object changeRechargeLog(@RequestParam(name="orderNo") Long orderNo,@RequestParam(name="status") Byte status){
         try {

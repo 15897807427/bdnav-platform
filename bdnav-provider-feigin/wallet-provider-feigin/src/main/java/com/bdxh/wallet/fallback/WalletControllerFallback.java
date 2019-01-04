@@ -15,7 +15,7 @@ public class WalletControllerFallback implements WalletControllerClient {
 
 
     @Override
-    public Wrapper addRechargeLog(Long userId, BigDecimal amount, String orderType) {
+    public Wrapper addRechargeLog(Long userId, BigDecimal amount, String orderType, Byte orderStatus) {
         return WrapMapper.error();
     }
 
