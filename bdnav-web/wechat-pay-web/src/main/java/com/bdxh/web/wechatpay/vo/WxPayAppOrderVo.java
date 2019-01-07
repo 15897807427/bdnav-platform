@@ -23,4 +23,5 @@ public class WxPayAppOrderVo implements Serializable {
      * 预支付会话标识
      */
     private String prepayId;
+
 }

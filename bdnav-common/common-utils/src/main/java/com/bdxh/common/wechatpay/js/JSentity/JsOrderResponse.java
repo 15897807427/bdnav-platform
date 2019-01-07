@@ -8,8 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
- * @description: 微信支付统一下单响应类
- * @author: xuyuan
+ * @description: JS微信支付统一下单响应类
  * @create: 2019-01-02 19:26
  **/
 @Data
@@ -30,7 +29,7 @@ public class JsOrderResponse implements Serializable {
     private String return_msg;
 
     /**
-     * 应用ID
+     * 公众账号ID
      */
     private String appid;
 

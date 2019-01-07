@@ -1,7 +1,6 @@
 package com.bdxh.common.wechatpay.js.JSentity;
 
 import com.bdxh.common.utils.CDATASectionAdapter;
-import com.bdxh.common.utils.XmlUtils;
 import lombok.Data;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -11,16 +10,27 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 
 /**
- * @description: JS统一下单实体类
- * @author:
- * @create: 2019-01-02 16:23
+ * @description: 微信JSAPI支付回调实体类
+ * @create: 2019-01-04 09:43
  **/
 @Data
 @XmlRootElement(name = "xml")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class JsOrderRequest implements Serializable {
+public class JSNoticeResponse implements Serializable {
 
-    private static final long serialVersionUID = -7845539846581510598L;
+    private static final long serialVersionUID = 4598522363009685874L;
+
+    /**
+     * 返回状态吗
+     */
+    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
+    private String return_code;
+
+    /**
+     * 返回信息
+     */
+    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
+    private String return_msg;
 
     /**
      * 公众账号ID
@@ -35,13 +45,13 @@ public class JsOrderRequest implements Serializable {
     private String mch_id;
 
     /**
-     * 设备号 默认WEB
+     * 设备号
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String device_info = "WEB";
+    private String device_info;
 
     /**
-     * 随机32位字符串
+     * 随机字符串
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
     private String nonce_str;
@@ -53,28 +63,94 @@ public class JsOrderRequest implements Serializable {
     private String sign;
 
     /**
-     * 签名类型 默认MD5
+     * 业务结果
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String sign_type = "MD5";
+    private String result_code;
 
     /**
-     * 商品描述
+     * 错误代码
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String body;
+    private String err_code;
 
     /**
-     * 商品详情
+     * 错误描述
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String detail;
+    private String err_code_des;
 
     /**
-     * 附加数据
+     * 用户openid
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String attach;
+    private String openid;
+
+    /**
+     * 是否关注公众号
+     */
+    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
+    private String is_subscribe;
+
+    /**
+     * 交易类型 JSAPI
+     */
+    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
+    private String trade_type;
+
+    /**
+     * 付款银行
+     */
+    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
+    private String bank_type;
+
+    /**
+     * 总金额
+     */
+    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
+    private String total_fee;
+
+    /**
+     * 货币种类
+     */
+    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
+    private String fee_type;
+
+    /**
+     * 现金金额
+     */
+    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
+    private String cash_fee;
+
+    /**
+     * 现金货币种类
+     */
+    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
+    private String cash_fee_type;
+
+    /**
+     * 代金券数量
+     */
+    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
+    private String coupon_count;
+
+    /**
+     * 代金券id
+     */
+    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
+    private String coupon_id_$n;
+
+    /**
+     * 单个代金券支付金额
+     */
+    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
+    private String coupon_fee_$n;
+
+    /**
+     * 微信支付订单号
+     */
+    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
+    private String transaction_id;
 
     /**
      * 商户订单号
@@ -83,77 +159,17 @@ public class JsOrderRequest implements Serializable {
     private String out_trade_no;
 
     /**
-     * 货币类型
+     * 商家数据包
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String fee_type = "CNY";
+    private String attach;
 
     /**
-     * 总金额 单位分
+     * 支付完成时间
      */
     @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String total_fee;
+    private String time_end;
 
-    /**
-     * 终端的ip
-     */
-    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String spbill_create_ip;
 
-    /**
-     * 交易起始时间
-     */
-    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String time_start;
-
-    /**
-     * 交易失效时间
-     */
-    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String time_expire;
-
-    /**
-     * 代金券优惠标记
-     */
-    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String goods_tag;
-
-    /**
-     * 通知地址
-     */
-    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String notify_url;
-
-    /**
-     * 交易类型
-     */
-    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String trade_type;
-
-    /**
-     * 用户标识
-     */
-    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String openid;
-
-    /**
-     * 指定支付方式
-     */
-    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String limit_pay;
-
-    /**
-     * 开发票入口开放标识
-     */
-    @XmlJavaTypeAdapter(CDATASectionAdapter.class)
-    private String receipt;
-
-    public static void main(String[] args) {
-        com.bdxh.common.wechatpay.app.domain.AppOrderRequest appOrderRequest = new com.bdxh.common.wechatpay.app.domain.AppOrderRequest();
-        String str = XmlUtils.toXML(appOrderRequest);
-        System.out.println(str);
-        com.bdxh.common.wechatpay.app.domain.AppOrderRequest t=XmlUtils.fromXML(str, com.bdxh.common.wechatpay.app.domain.AppOrderRequest.class);
-        System.out.println(str);
-    }
 
 }
